@@ -1,0 +1,10 @@
+initialisoi projekti:
+npm init //npm-käsky tulee noden mukana
+(komento luo package.json -tiedoston)
+
+asenna: (i=install)
+npm i nodemon ejs express mongoose bcrypt
+
+tarkista package.json -tiedostosta, 
+että ym. paketit asentuivat 
+(näet ne dependencies-kohdasta)

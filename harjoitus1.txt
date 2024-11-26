@@ -1,0 +1,20 @@
+Hae Teamsista projektiisi views-kansioon login.ejs -tiedosto.
+
+Uudelleenohjaa käyttäjä / reitistä /login reittiin seuraavasti:
+res.redirect('/login')
+
+Luo /login reitti ja näytä reitissä login.ejs -sivu
+app.get('/login...) //ota mallia / reitistä
+    ... res.render('login')
+    
+Kun saat toimimaan, niin käyttäjän painaessa Login-nappia 
+mennään /after_login -reittiin (luo reitti)
+Luo /after_login reittiin post-metodi
+(syntaksi app.post, muuten samalla lailla kuin get).
+
+Reitin tulee näyttää index.ejs sivu, ja viedä sivun 
+messageksi stringin "toimii".
+
+Pääsette käsiksi käyttäjän username ja password
+esim. req.body.username
+Näyttäkää toimii-sanan tilalla esim. usernamesi
