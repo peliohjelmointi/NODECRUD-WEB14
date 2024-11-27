@@ -10,19 +10,32 @@ async function cryptPassword(password){
     return hashedPassword
 }
 
-async function VerifyPassword(inputPassword, hash){
-    const isMatch = await bcrypt.compare(inputPassword, hash)
-    return isMatch
+async function VerifyPassword(username, pw,coll){
+    //otetaan mongo-yhteys, haetaan 1.käyttäjä, löytyykö usernamella?
+    
+    const user = await coll.findOne({username: username})
+    if(!user){
+        console.log("user not found")
+        return false
+    }
+    console.log("user found!")
+    
+    //JATKETAAN TÄSTÄ TO-AAMUNA (kotiläksy, tee funktio loppuun)
+    
+    // const isMatch = await bcrypt.compare(inputPassword, hash)
+    // return isMatch
 }
 
-async function tarkasta(){
-    const password = 'KohtaKotiin'
-    const hashed = await cryptPassword(password)
-    const match = await VerifyPassword(password,hashed)
-    console.log(match) //true tai false, tässä nyt aina true
-}
+module.exports = {cryptPassword, VerifyPassword}
 
-tarkasta() //tämä vain väkisin tehty esimerkki,
+// async function tarkasta(){
+//     const password = 'KohtaKotiin'
+//     const hashed = await cryptPassword(password)
+//     const match = await VerifyPassword(password,hashed)
+//     console.log(match) //true tai false, tässä nyt aina true
+// }
+
+// tarkasta() //tämä vain väkisin tehty esimerkki,
 
 // seuraavaksi käytetään funktioita niin, että cryptPassword tallentaa käyttäjän ja hashatun salasanan 
 // tietokantaan 
