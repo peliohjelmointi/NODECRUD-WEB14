@@ -1,7 +1,7 @@
 const mongoose = require('mongoose') //mongodb driver for js/node
 
                 //connection string, voi joutua esim. vuoden päästä päivittämään
-const mongoURI = 'mongodb+srv://tonttu:tomera@cluster0.37ex2rd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+const mongoURI = 'mongodb+srv://USERNAME_TÄHÄN:SALASANA_TÄHÄN@cluster0.37ex2rd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 
 /*
 

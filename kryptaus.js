@@ -13,20 +13,23 @@ async function cryptPassword(password){
 async function VerifyPassword(username, pw,coll){
     //otetaan mongo-yhteys, haetaan 1.käyttäjä, löytyykö usernamella?
     
-    const user = await coll.findOne({username: username})
+    const user = await coll.findOne({username: username}) //huom. hakee VAIN 1.tämän nimisen userin
     if(!user){
         console.log("user not found")
         return false
     }
     console.log("user found!")
-    
-    //JATKETAAN TÄSTÄ TO-AAMUNA (kotiläksy, tee funktio loppuun)
-    
-    // const isMatch = await bcrypt.compare(inputPassword, hash)
-    // return isMatch
+
+    const isMatch = await bcrypt.compare(pw, user.password)
+    console.log(isMatch)
+    return isMatch
 }
 
 module.exports = {cryptPassword, VerifyPassword}
+
+
+
+
 
 // async function tarkasta(){
 //     const password = 'KohtaKotiin'
